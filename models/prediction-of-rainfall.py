@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 import joblib
 from sklearn.metrics import r2_score, mean_squared_error
 import numpy as np
+import os
 
 # Load data
 df = pd.read_csv("data/rainfall in india 1901-2015.csv")
@@ -34,5 +35,6 @@ print(f"R² Score: {rf_r2:.4f}")
 print(f"RMSE: {rf_rmse:.2f}")
 
 # Save encoder + model
+os.makedirs("trained_model", exist_ok=True)
 joblib.dump(model, "trained_model/rain_model.pkl")
 joblib.dump(le, "trained_model/state_label_encoder.pkl")

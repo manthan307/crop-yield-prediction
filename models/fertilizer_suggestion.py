@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 import numpy as np
 import joblib
+import os
 
 df = pd.read_csv("data/Fertilizer Prediction.csv")
 df = df.dropna()
@@ -41,6 +42,7 @@ print(f"R² Score: {rf_r2:.4f}")
 print(f"RMSE: {rf_rmse:.2f}")
 
 # %%
+os.makedirs("trained_model", exist_ok=True)
 joblib.dump(model, "trained_model/fertilizer_model.pkl")
 joblib.dump(encoders, "trained_model/feature_label_encoders.pkl")
 joblib.dump(fertilizer_le, "trained_model/fertilizer_label_encoder.pkl")

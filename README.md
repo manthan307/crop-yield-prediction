@@ -22,3 +22,17 @@ graph TD
     B --> |"Response / Recommendations"| A
 
 ```
+
+# For Windows (Powershell)
+
+```powershell
+ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\start.ps1
+```
+
+# For Linux (Bash)
+
+```bash
+chmod +x run_all.sh
+./start.sh
+```
