@@ -7,9 +7,13 @@ import pandas as pd
 from geopy.geocoders import Nominatim
 import requests
 from tips import generate_tips
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = fastapi.FastAPI()
-api_key = "27387d7111fa0bc3a1dc14fc8aa8a592"
+api_key = os.getenv("WEATHER_API_KEY")
 
 app.add_middleware(
     CORSMiddleware,
